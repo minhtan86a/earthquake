@@ -1,0 +1,45 @@
+body{
+	overflow: hidden;
+}
+.map{
+	height: 100vh;
+	width: 100vw;
+}
+.content{
+	position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 30%;
+    z-index: 100;
+    background: #fff;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+    -webkit-transform: translate(100%);
+    -moz-transform: translate(100%);
+    -o-transform: translate(100%);
+    -ms-transform: translate(100%);
+    transform: translate(100%);
+    
+}
+.close-box{
+	-webkit-transform: translate(100%);
+    -moz-transform: translate(100%);
+    -o-transform: translate(100%);
+    -ms-transform: translate(100%);
+    transform: translate(100%);
+}
+.open-box{
+	-webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -o-transform: translate(0);
+    -ms-transform: translate(0);
+    transform: translate(0);
+}
+@media(max-width:767px){
+	.content{
+		width: 280px;
+	}
+}
