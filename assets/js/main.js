@@ -1,21 +1,17 @@
 //create map
-var map, infowindow;
+var map;
 function initMap() {
-		infowindow = new google.maps.InfoWindow();
-		map = new google.maps.Map(document.getElementById('map'), {
+	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 2,
 		center: new google.maps.LatLng(2.8,-187.3),
 		mapTypeId: 'terrain'
 	});
-}
-$(function() {
-	//Toggle box
-	$('.close-btn').click(function() {
-		$('#content').removeClass('open-box').addClass('close-box');
-	});
+	var infowindow = new google.maps.InfoWindow();
 
-	//get data
+
+//get data
 var data = $.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data, status){
+		//console.log(data);
         for (var i = 0; i < data.features.length; i++) {
 			var coords = data.features[i].geometry.coordinates;
 			var latLng = new google.maps.LatLng(coords[1],coords[0]);
@@ -54,6 +50,12 @@ var data = $.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 		  		}
 			})(marker, i));
 		}
+	});
+}
+$(function() {
+	//Toggle box
+	$('.close-btn').click(function() {
+		$('#content').removeClass('open-box').addClass('close-box');
 	});
 });
 
